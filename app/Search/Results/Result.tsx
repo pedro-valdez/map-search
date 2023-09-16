@@ -3,11 +3,12 @@ import Image from "next/image"
 
 type ResultProps = {
 	mapLocation: MapLocation,
+	isSelected: boolean,
 }
 
-export default function Result({ mapLocation } : ResultProps) {
+export default function Result({ mapLocation, isSelected } : ResultProps) {
 	return (
-		<article className="flex gap-x-4 bg-base-100 rounded-btn hover:bg-base-300 hover:cursor-pointer">
+		<article className={`flex gap-x-4 ${isSelected ? "bg-base-300" : "bg-base-100"} rounded-btn hover:bg-base-300 hover:cursor-pointer`}>
 			<button className="btn btn-ghost btn-square">
 				<Image
 					src={"pin.svg"}

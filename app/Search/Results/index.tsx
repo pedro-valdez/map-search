@@ -9,14 +9,17 @@ const fuse = new Fuse(mapLocations, fuseOptions)
 const fuzzySearch = (query: string) => fuse.search(query).map(result => result.item)
 
 export const searchResultsAtom = atom(get => fuzzySearch(get(searchQueryAtom)))
+export const resultsLengthAtom = atom(get => get(searchResultsAtom).length)
+export const autocompleteIndexAtom = atom<null | number>(null)
 
 export default function Results() {
 	const [searchResults] = useAtom(searchResultsAtom)
+	const [autocompleteIndex] = useAtom(autocompleteIndexAtom)
 
 	return (
 		<div className="hidden group-focus-within:block w-full mt-4 space-y-4">
-			{ searchResults.map(result => (
-				<Result mapLocation={result} key={result.id}/>
+			{ searchResults.map((result, i) => (
+				<Result mapLocation={result} key={result.id} isSelected={autocompleteIndex === i}/>
 			)) }
 		</div>
 	)
