@@ -1,10 +1,10 @@
 # Map Search
 ## Features TODO:
 - Search
-    - [ ] When I type, results show
+    - [x] When I type, results show
     - [ ] When I type, results are shown in map
-    - [ ] When I focus searchbar, results show again
-    - [ ] When I press up/down arrow keys, I navigate through results
+    - [x] When I focus searchbar, results show again
+    - [x] When I press up/down arrow keys, I navigate through results
     - [ ] When I hover or navigate results, map marker is highlighted
     - When I press enter or click on result
         - [ ] Text is autocompleted
