@@ -13,7 +13,7 @@ export type MapLocation = {
 	images?: string[],
 }
 
-const locations: MapLocation[] = [{
+const mapLocations: MapLocation[] = [{
 	id: 1,
 	name: 'Alberts Bike Shop',
 	location: {
@@ -178,4 +178,4 @@ const locations: MapLocation[] = [{
 	}
 }]
 
-export default locations
+export default mapLocations
