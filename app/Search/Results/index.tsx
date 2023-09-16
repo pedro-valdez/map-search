@@ -9,7 +9,6 @@ const fuse = new Fuse(mapLocations, fuseOptions)
 const fuzzySearch = (query: string) => fuse.search(query).map(result => result.item)
 
 export const searchResultsAtom = atom(get => fuzzySearch(get(searchQueryAtom)))
-export const resultsLengthAtom = atom(get => get(searchResultsAtom).length)
 export const autocompleteIndexAtom = atom<null | number>(null)
 
 export default function Results() {

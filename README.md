@@ -4,7 +4,7 @@
     - [x] When I type, results show
     - [ ] When I type, results are shown in map
     - [x] When I focus searchbar, results show again
-    - [x] When I press up/down arrow keys, I navigate through results
+    - [x] When I press up/down arrow keys, I navigate through results and text is autocompleted
     - [ ] When I hover or navigate results, map marker is highlighted
     - When I press enter or click on result
         - [ ] Text is autocompleted

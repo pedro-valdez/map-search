@@ -5,7 +5,6 @@ export default function BackButton() {
 		<button
 			className="btn btn-square btn-ghost hidden group-focus-within:inline-flex sm:group-focus-within:hidden"
 			onClick={(e) => {
-				e.preventDefault()
 				e.currentTarget.blur()
 			}}
 		>
