@@ -1,25 +1,13 @@
 "use client"
+
+import Results from "./Results"
+import Searchbar from "./Searchbar"
+
 export default function Search() {
 	return (
-		<div className="fixed z-20 group">
-			<form className="flex">
-				<button
-					className="btn btn-square"
-					onClick={(e) => {
-						e.preventDefault()
-						e.currentTarget.blur()
-					}}
-				>
-				</button>
-				<input
-					type="search"
-					placeholder="Search..."
-					className="input"
-				/>
-			</form>
-
-			<div className="hidden group-focus-within:block bg-base-100 aspect-square">
-			</div>
+		<div className="group fixed z-20 left-4 top-4 w-[calc(100%-2rem)]  sm:max-w-sm">
+			<Searchbar />
+			<Results />
 		</div>
 	)
 }
