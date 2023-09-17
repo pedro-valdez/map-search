@@ -1,6 +1,6 @@
 import { useAtom } from "jotai"
 import { autocompleteIndexAtom, searchResultsAtom } from "../Search/Results"
-import { Marker } from "react-leaflet"
+import { Marker, Popup } from "react-leaflet"
 import { Icon } from "leaflet"
 import { locationForModalAtom } from "../LocationModal"
 
@@ -25,8 +25,14 @@ export default function LocationMarkers() {
 						position={[result.location.lat, result.location.lon]}
 						icon={i === autocompleteIndex ? redMarkerIcon : defaultMarkerIcon}
 						eventHandlers={{
-							mouseover: () => { setAutocompleteIndex(i) },
-							mouseout: () => { setAutocompleteIndex(null) },
+							mouseover: (e) => {
+								setAutocompleteIndex(i) 
+								e.sourceTarget.openPopup()
+							},
+							mouseout: (e) => {
+								setAutocompleteIndex(null)
+								e.sourceTarget.closePopup()
+						},
 							click: () => {
 								setLocationforModal(searchResults[i])
 								const modal = document.getElementById("location_modal") as HTMLDialogElement
@@ -34,6 +40,9 @@ export default function LocationMarkers() {
 							}
 						}}
 					>
+						<Popup>
+							{ result.name }
+						</Popup>
 					</Marker>
 				))
 			}
