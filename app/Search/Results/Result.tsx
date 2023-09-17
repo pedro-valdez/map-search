@@ -2,6 +2,7 @@ import { MapLocation } from "@/app/map-locations"
 import { useAtom } from "jotai"
 import Image from "next/image"
 import { autocompleteIndexAtom } from "."
+import { mapCenterAtom } from "@/app/LeafletMap/Events"
 
 type ResultProps = {
 	mapLocation: MapLocation,
@@ -11,6 +12,7 @@ type ResultProps = {
 
 export default function Result({ mapLocation, isSelected, index } : ResultProps) {
 	const [autocompleteIndex, setAutocompleteIndex] = useAtom(autocompleteIndexAtom)
+	const [mapCenter, setMapCenter] = useAtom(mapCenterAtom)
 
 	return (
 		<article
@@ -18,7 +20,13 @@ export default function Result({ mapLocation, isSelected, index } : ResultProps)
 			onMouseOver={() => { setAutocompleteIndex(index) }}
 			onMouseOut={() => setAutocompleteIndex(null)}
 		>
-			<button className="btn btn-ghost btn-square">
+			<button
+				className="btn btn-ghost btn-square"
+				onClick={(e) => {
+					e.preventDefault()
+					setMapCenter([mapLocation.location.lat, mapLocation.location.lon])
+				}}
+			>
 				<Image
 					src={"pin.svg"}
 					alt="Locate button"

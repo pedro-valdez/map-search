@@ -2,9 +2,11 @@ import "leaflet/dist/leaflet.css"
 import { LatLngTuple } from "leaflet"
 import { MapContainer, TileLayer } from "react-leaflet"
 import LocationMarkers from "./LocationMarkers"
+import Events from "./Events"
+
+export const boston: LatLngTuple = [42.354022, -71.046245]
 
 export default function Map() {
-	const boston: LatLngTuple = [42.354022, -71.046245]
 	return (
 		<div className="h-screen w-screen relative z-10">
 			<MapContainer
@@ -18,6 +20,7 @@ export default function Map() {
 					url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 				/>
 				<LocationMarkers />
+				<Events />
 			</MapContainer>
 		</div>
 	)
