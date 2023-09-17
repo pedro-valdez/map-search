@@ -22,6 +22,7 @@ export default function LocationMarkers() {
 			{
 				searchResults.map((result, i) => (
 					<Marker
+						key={result.id}
 						position={[result.location.lat, result.location.lon]}
 						icon={i === autocompleteIndex ? redMarkerIcon : defaultMarkerIcon}
 						eventHandlers={{
