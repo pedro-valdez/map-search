@@ -2,6 +2,7 @@ import { MapLocation } from "@/app/map-locations"
 import { useAtom } from "jotai"
 import Image from "next/image"
 import { autocompleteIndexAtom } from "."
+import { highlightIndexAtom } from "@/app/LeafletMap/LocationMarkers"
 
 type ResultProps = {
 	mapLocation: MapLocation,
@@ -11,10 +12,14 @@ type ResultProps = {
 
 export default function Result({ mapLocation, isSelected, index } : ResultProps) {
 	const [autocompleteIndex, setAutocompleteIndex] = useAtom(autocompleteIndexAtom)
+	const [highlightIndex, setHighlightIndex] = useAtom(highlightIndexAtom)
 
 	return (
 		<article
 			className={`flex ${isSelected ? "bg-base-300" : "bg-base-100"} rounded-btn hover:bg-base-300`}
+			onMouseOver={() => {
+				setHighlightIndex(index)
+			}}
 		>
 			<button className="btn btn-ghost btn-square">
 				<Image

@@ -1,6 +1,7 @@
 import "leaflet/dist/leaflet.css"
 import { LatLngTuple } from "leaflet"
 import { MapContainer, TileLayer } from "react-leaflet"
+import LocationMarkers from "./LocationMarkers"
 
 export default function Map() {
 	const boston: LatLngTuple = [42.354022, -71.046245]
@@ -16,6 +17,7 @@ export default function Map() {
 					attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 					url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 				/>
+				<LocationMarkers />
 			</MapContainer>
 		</div>
 	)

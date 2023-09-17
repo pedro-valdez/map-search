@@ -1,5 +1,6 @@
 import { atom, useAtom } from "jotai"
 import { autocompleteIndexAtom, searchResultsAtom } from "../Results"
+import { highlightIndexAtom } from "@/app/LeafletMap/LocationMarkers"
 
 export const searchQueryAtom = atom("")
 export const searchTextAtom = atom("")
@@ -9,6 +10,7 @@ export default function SearchbarInput() {
 	const [searchQuery, setSearchQuery] = useAtom(searchQueryAtom)
 	const [autocompleteIndex, setAutocompleteIndex] = useAtom(autocompleteIndexAtom)
 	const [searchResults, setSearchResults] = useAtom(searchResultsAtom)
+	const [highlightIndex, setHighlightIndex] = useAtom(highlightIndexAtom)
 
 	return (
 		<input
@@ -52,6 +54,7 @@ export default function SearchbarInput() {
 						} else {
 							setSearchText(searchResults[newIndex].name)
 						}
+						setHighlightIndex(newIndex)
 					}
 				}
 			}}

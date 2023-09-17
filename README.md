@@ -7,8 +7,8 @@
     - [x] When I press up/down arrow keys, I navigate through results
     - [ ] When I hover or navigate results, map marker is highlighted
     - When I press enter or click on result
-        - [ ] Text is autocompleted
-        - [ ] Modal is opened
+        - [x] Text is autocompleted
+        - [x] Modal is opened
         - [ ] Map gets centered around location
 - Map
     - [ ] When I click on map, results aren't shown
