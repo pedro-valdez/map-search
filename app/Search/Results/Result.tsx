@@ -43,7 +43,7 @@ export default function Result({ mapLocation, isSelected, index } : ResultProps)
 			>
 				<div className="my-auto text-left">
 					<h1 className="font-bold">{ mapLocation.name }</h1>
-					<p className="text-sm">{ mapLocation.location.lat }, { mapLocation.location.lon }</p>
+					<p className="text-sm text-gray-400">{ mapLocation.location.lat }, { mapLocation.location.lon }</p>
 				</div>
 			</button>
 		</article>
