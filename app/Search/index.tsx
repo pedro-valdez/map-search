@@ -19,15 +19,14 @@ export default function Search() {
 			className="group fixed z-20 left-4 top-4 w-[calc(100%-2rem)] sm:max-w-sm"
 			onSubmit={e => {
 				e.preventDefault()
-				const isAutocompletePossible = searchResults.length !== 0
-				const isIndexInteger = autocompleteIndex !== null
-				const shouldOpenModal = isAutocompletePossible && isIndexInteger
+				const shouldOpenModal = searchResults.length > 0
 				if (shouldOpenModal) {
+					const resultsIndex = autocompleteIndex ? autocompleteIndex : 0
 					const modal = document.getElementById("location_modal") as HTMLDialogElement
-					setLocationForModal(searchResults[autocompleteIndex])
+					setLocationForModal(searchResults[resultsIndex])
 					modal.showModal()
-					setSearchQuery(searchResults[autocompleteIndex].name)
-					setSearchText(searchResults[autocompleteIndex].name)
+					setSearchQuery(searchResults[resultsIndex].name)
+					setSearchText(searchResults[resultsIndex].name)
 					setAutocompleteIndex(null)
 				}
 			}}
