@@ -1,11 +1,11 @@
 import { atom, useAtom } from "jotai"
 import { autocompleteIndexAtom, searchResultsAtom } from "../Results"
-import { useState } from "react"
 
 export const searchQueryAtom = atom("")
+export const searchTextAtom = atom("")
 
 export default function SearchbarInput() {
-	const [searchText, setSearchText] = useState("")
+	const [searchText, setSearchText] = useAtom(searchTextAtom)
 	const [searchQuery, setSearchQuery] = useAtom(searchQueryAtom)
 	const [autocompleteIndex, setAutocompleteIndex] = useAtom(autocompleteIndexAtom)
 	const [searchResults, setSearchResults] = useAtom(searchResultsAtom)

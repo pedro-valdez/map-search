@@ -4,11 +4,14 @@ import { useAtom } from "jotai"
 import Results, { autocompleteIndexAtom, searchResultsAtom } from "./Results"
 import Searchbar from "./Searchbar"
 import { locationForModalAtom } from "../LocationModal"
+import { searchQueryAtom, searchTextAtom } from "./Searchbar/Input"
 
 export default function Search() {
 	const [searchResults] = useAtom(searchResultsAtom)
 	const [autocompleteIndex] = useAtom(autocompleteIndexAtom)
 	const [locationForModal, setLocationForModal] = useAtom(locationForModalAtom)
+	const [searchText] = useAtom(searchTextAtom)
+	const [searchQuery, setSearchQuery] = useAtom(searchQueryAtom)
 
 	return (
 		<form
@@ -22,6 +25,7 @@ export default function Search() {
 					const modal = document.getElementById("location_modal") as HTMLDialogElement
 					setLocationForModal(searchResults[autocompleteIndex])
 					modal.showModal()
+					setSearchQuery(searchText)
 				}
 			}}
 		>
