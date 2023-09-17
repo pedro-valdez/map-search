@@ -9,7 +9,7 @@
     - When I press enter or click on result
         - [x] Text is autocompleted
         - [x] Modal is opened
-        - [ ] Map gets centered around location
+        - [x] Map gets centered around location
 - Map
     - [x] When I click on map, results aren't shown
     - When I hover over marker
