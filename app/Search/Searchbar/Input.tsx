@@ -20,6 +20,7 @@ export default function SearchbarInput() {
 			value={searchText}
 			onChange={e => {
 				const text = e.currentTarget.value
+				setAutocompleteIndex(null)
 				setSearchText(text)
 				setSearchQuery(text.trim())
 			}}
