@@ -7,7 +7,7 @@ export default function WebsiteLink({ website } : WebsiteLink) {
 		<a
 			href={website ?? undefined}
 			target="_blank"
-			className={`btn ${website ? "" : "btn-disabled"} mt-4 sm:mt-0`}
+			className={`btn btn-primary ${website ? "" : "btn-disabled"} mt-4 sm:mt-0`}
 		>
 			Visit website
 		</a>

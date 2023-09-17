@@ -16,12 +16,12 @@ export default function Result({ mapLocation, isSelected, index } : ResultProps)
 
 	return (
 		<article
-			className={`flex ${isSelected ? "bg-base-300" : "bg-base-100"} rounded-btn hover:bg-base-300`}
+			className={`flex ${isSelected ? "bg-base-300" : "bg-base-100"} hover:bg-base-300`}
 			onMouseOver={() => { setAutocompleteIndex(index) }}
 			onMouseOut={() => setAutocompleteIndex(null)}
 		>
 			<button
-				className="btn btn-ghost btn-square"
+				className="btn btn-ghost btn-square rounded-none"
 				onClick={(e) => {
 					e.preventDefault()
 					setMapCenter([mapLocation.location.lat, mapLocation.location.lon])
@@ -42,8 +42,8 @@ export default function Result({ mapLocation, isSelected, index } : ResultProps)
 				className="hover:cursor-pointer pl-4 w-full"
 			>
 				<div className="my-auto text-left">
-					<h1 className="leading-none font-bold">{ mapLocation.name }</h1>
-					<p className="leading-none text-sm">{ mapLocation.location.lat }, { mapLocation.location.lon }</p>
+					<h1 className="font-bold">{ mapLocation.name }</h1>
+					<p className="text-sm">{ mapLocation.location.lat }, { mapLocation.location.lon }</p>
 				</div>
 			</button>
 		</article>

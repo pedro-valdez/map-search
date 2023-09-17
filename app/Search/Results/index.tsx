@@ -16,15 +16,18 @@ export default function Results() {
 	const [autocompleteIndex] = useAtom(autocompleteIndexAtom)
 
 	return (
-		<div className="hidden group-focus-within:block w-full mt-4 space-y-4">
-			{ searchResults.map((result, i) => (
-				<Result
-					mapLocation={result}
-					key={result.id}
-					isSelected={autocompleteIndex === i}
-					index={i}
-				/>
-			)) }
+		<div className="hidden group-focus-within:block w-full mt-4">
+			<div className="rounded-btn overflow-hidden">
+				<div className="bg-primary py-2 px-4 text-primary-content">Found {searchResults.length} {searchResults.length === 1 ? "result" : "results"}:</div>
+				{ searchResults.map((result, i) => (
+					<Result
+						mapLocation={result}
+						key={result.id}
+						isSelected={autocompleteIndex === i}
+						index={i}
+					/>
+				)) }
+			</div>
 		</div>
 	)
 }

@@ -6,6 +6,8 @@ export default function Description({ description } : DescriptionProps) {
 	if (!description) { return null }
 
 	return (
-		<p className="pt-4">{ description }</p>
+		<div className="pt-4">
+			<p className="border-t pt-2">{ description }</p>
+		</div>
 	)
 }
