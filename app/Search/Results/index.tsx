@@ -18,7 +18,12 @@ export default function Results() {
 	return (
 		<div className="hidden group-focus-within:block w-full mt-4 space-y-4">
 			{ searchResults.map((result, i) => (
-				<Result mapLocation={result} key={result.id} isSelected={autocompleteIndex === i}/>
+				<Result
+					mapLocation={result}
+					key={result.id}
+					isSelected={autocompleteIndex === i}
+					index={i}
+				/>
 			)) }
 		</div>
 	)

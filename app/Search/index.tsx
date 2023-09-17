@@ -8,13 +8,14 @@ import { searchQueryAtom, searchTextAtom } from "./Searchbar/Input"
 
 export default function Search() {
 	const [searchResults] = useAtom(searchResultsAtom)
-	const [autocompleteIndex] = useAtom(autocompleteIndexAtom)
+	const [autocompleteIndex, setAutocompleteIndex] = useAtom(autocompleteIndexAtom)
 	const [locationForModal, setLocationForModal] = useAtom(locationForModalAtom)
-	const [searchText] = useAtom(searchTextAtom)
+	const [searchText, setSearchText] = useAtom(searchTextAtom)
 	const [searchQuery, setSearchQuery] = useAtom(searchQueryAtom)
 
 	return (
 		<form
+			id="search"
 			className="group fixed z-20 left-4 top-4 w-[calc(100%-2rem)] sm:max-w-sm"
 			onSubmit={e => {
 				e.preventDefault()
@@ -25,7 +26,9 @@ export default function Search() {
 					const modal = document.getElementById("location_modal") as HTMLDialogElement
 					setLocationForModal(searchResults[autocompleteIndex])
 					modal.showModal()
-					setSearchQuery(searchText)
+					setSearchQuery(searchResults[autocompleteIndex].name)
+					setSearchText(searchResults[autocompleteIndex].name)
+					setAutocompleteIndex(null)
 				}
 			}}
 		>

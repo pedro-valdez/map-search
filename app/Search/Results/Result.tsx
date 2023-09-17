@@ -1,14 +1,21 @@
 import { MapLocation } from "@/app/map-locations"
+import { useAtom } from "jotai"
 import Image from "next/image"
+import { autocompleteIndexAtom } from "."
 
 type ResultProps = {
 	mapLocation: MapLocation,
 	isSelected: boolean,
+	index: number,
 }
 
-export default function Result({ mapLocation, isSelected } : ResultProps) {
+export default function Result({ mapLocation, isSelected, index } : ResultProps) {
+	const [autocompleteIndex, setAutocompleteIndex] = useAtom(autocompleteIndexAtom)
+
 	return (
-		<article className={`flex gap-x-4 ${isSelected ? "bg-base-300" : "bg-base-100"} rounded-btn hover:bg-base-300 hover:cursor-pointer`}>
+		<article
+			className={`flex ${isSelected ? "bg-base-300" : "bg-base-100"} rounded-btn hover:bg-base-300`}
+		>
 			<button className="btn btn-ghost btn-square">
 				<Image
 					src={"pin.svg"}
@@ -18,10 +25,17 @@ export default function Result({ mapLocation, isSelected } : ResultProps) {
 				/>
 			</button>
 
-			<div className="my-auto">
-				<h1 className="leading-none font-bold">{ mapLocation.name }</h1>
-				<p className="leading-none text-sm">{ mapLocation.location.lat }, { mapLocation.location.lon }</p>
-			</div>
+			<button
+				onClick={() => {
+					setAutocompleteIndex(index)
+				}}
+				className="hover:cursor-pointer pl-4 w-full"
+			>
+				<div className="my-auto text-left">
+					<h1 className="leading-none font-bold">{ mapLocation.name }</h1>
+					<p className="leading-none text-sm">{ mapLocation.location.lat }, { mapLocation.location.lon }</p>
+				</div>
+			</button>
 		</article>
 	)
 }
