@@ -1,5 +1,5 @@
-import { atom, useAtom } from "jotai"
-import { searchResultsAtom } from "../Search/Results"
+import { useAtom } from "jotai"
+import { autocompleteIndexAtom, searchResultsAtom } from "../Search/Results"
 import { Marker } from "react-leaflet"
 import { Icon } from "leaflet"
 
@@ -11,11 +11,9 @@ redMarkerIcon.options = {
 	iconRetinaUrl: "marker-icon-red-2x.png",
 }
 
-export const highlightIndexAtom = atom<number | null>(null)
-
 export default function LocationMarkers() {
 	const [searchResults] = useAtom(searchResultsAtom)
-	const [highlightIndex] = useAtom(highlightIndexAtom)
+	const [autocompleteIndex] = useAtom(autocompleteIndexAtom)
 
 	return (
 		<>
@@ -23,7 +21,7 @@ export default function LocationMarkers() {
 				searchResults.map((result, i) => (
 					<Marker
 						position={[result.location.lat, result.location.lon]}
-						icon={i === highlightIndex ? redMarkerIcon : defaultMarkerIcon}
+						icon={i === autocompleteIndex ? redMarkerIcon : defaultMarkerIcon}
 					>
 					</Marker>
 				))
