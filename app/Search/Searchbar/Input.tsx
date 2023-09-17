@@ -1,5 +1,5 @@
 import { atom, useAtom } from "jotai"
-import { autocompleteIndexAtom, resultsLengthAtom, searchResultsAtom } from "../Results"
+import { autocompleteIndexAtom, searchResultsAtom } from "../Results"
 import { useState } from "react"
 
 export const searchQueryAtom = atom("")
@@ -7,7 +7,6 @@ export const searchQueryAtom = atom("")
 export default function SearchbarInput() {
 	const [searchText, setSearchText] = useState("")
 	const [searchQuery, setSearchQuery] = useAtom(searchQueryAtom)
-	const [resultsLength] = useAtom(resultsLengthAtom)
 	const [autocompleteIndex, setAutocompleteIndex] = useAtom(autocompleteIndexAtom)
 	const [searchResults, setSearchResults] = useAtom(searchResultsAtom)
 
@@ -26,10 +25,10 @@ export default function SearchbarInput() {
 				const isUpArrow = e.key === "ArrowUp"
 				const isDownArrow = e.key === "ArrowDown"
 				const isVerticalArrow = isUpArrow || isDownArrow
-				const isAutocompletePossible = resultsLength !== 0
+				const isAutocompletePossible = searchResults.length !== 0
 				const isIndexNull = autocompleteIndex === null
 				const isIndexZero = autocompleteIndex === 0
-				const lastResultIndex = resultsLength - 1
+				const lastResultIndex = searchResults.length - 1
 				const isIndexLast = lastResultIndex === autocompleteIndex
 				let newIndex = null
 
