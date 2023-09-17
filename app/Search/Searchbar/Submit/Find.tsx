@@ -7,7 +7,6 @@ export default function FindButton() {
 			onClick={e => {
 				e.currentTarget.blur()
 			}}
-			type="submit"
 		>
 			<Image
 				src={"search.svg"}
