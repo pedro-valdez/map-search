@@ -4,9 +4,9 @@ import SubmitButton from "./Submit";
 
 export default function Searchbar() {
 	return (
-		<div className="flex bg-base-100 rounded-btn outline-2 outline-[hsl(var(--bc)/0.2)] focus-within:outline">
+		<form className="flex bg-base-100 rounded-btn outline-2 outline-[hsl(var(--bc)/0.2)] focus-within:outline">
 			<SubmitButton />
 			<SearchbarInput />
-		</div>
+		</form>
 	)
 }
