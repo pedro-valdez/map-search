@@ -4,7 +4,7 @@ import { MapContainer, TileLayer } from "react-leaflet"
 import LocationMarkers from "./LocationMarkers"
 import Events from "./Events"
 
-export const boston: LatLngTuple = [42.354022, -71.046245]
+const boston: LatLngTuple = [42.354022, -71.046245]
 
 export default function Map() {
 	return (

@@ -1,9 +1,9 @@
 import { atom, useAtom } from "jotai"
 import { LatLngTuple } from "leaflet"
 import { useMap } from "react-leaflet"
-import { boston } from "./Map"
 import { useEffect } from "react"
 
+const boston: LatLngTuple = [42.354022, -71.046245]
 export const mapCenterAtom = atom<LatLngTuple>(boston)
 
 export default function Events() {
