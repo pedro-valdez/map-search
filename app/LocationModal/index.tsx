@@ -2,16 +2,10 @@
 
 import { atom } from "jotai"
 import { MapLocation } from "../map-locations"
-import Backdrop from "./Backdrop"
-import ModalBox from "./ModalBox"
+import dynamic from "next/dynamic"
 
 export const locationForModalAtom = atom<MapLocation | null>(null)
 
-export default function LocationModal() {
-	return (
-		<dialog id="location_modal" className="modal">
-			<ModalBox />
-			<Backdrop />
-		</dialog>
-	)
-}
+const LocationModal = dynamic(() => import("./Modal"), { ssr: false })
+
+export default LocationModal
