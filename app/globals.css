@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+	.default-marker {
+		@apply bg-[url('/pin.svg')] !w-[22px] !h-[28px] bg-cover;
+	}
+	.red-marker {
+		@apply bg-[url('/pin-red.svg')] !w-[22px] !h-[28px] bg-cover;
+	}
+}

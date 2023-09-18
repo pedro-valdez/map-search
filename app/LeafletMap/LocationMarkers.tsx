@@ -1,16 +1,11 @@
 import { useAtom } from "jotai"
 import { autocompleteIndexAtom, searchResultsAtom } from "../Search/Results"
 import { Marker, Popup } from "react-leaflet"
-import { Icon } from "leaflet"
+import { divIcon } from "leaflet"
 import { locationForModalAtom } from "../LocationModal"
 
-const defaultMarkerIcon = new Icon.Default()
-const redMarkerIcon = new Icon.Default()
-redMarkerIcon.options = {
-	iconUrl: "marker-icon-red.png",
-	iconRetinaUrl: "marker-icon-red-2x.png",
-	shadowUrl: "marker-shadow.png",
-}
+const defaultMarkerIcon = divIcon({ className: "default-marker" })
+const redMarkerIcon = divIcon({ className: "red-marker" })
 
 export default function LocationMarkers() {
 	const [searchResults] = useAtom(searchResultsAtom)
