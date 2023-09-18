@@ -2,6 +2,7 @@ type GalleryProps = {
 	images: string[] | null,
 }
 
+// Display images only when images are provided.
 export default function Gallery({ images } : GalleryProps) {
 	if (!images) { return null }
 

@@ -2,6 +2,7 @@ type DescriptionProps = {
 	description: string | null,
 }
 
+// Display description if it exists.
 export default function Description({ description } : DescriptionProps) {
 	if (!description) { return null }
 
