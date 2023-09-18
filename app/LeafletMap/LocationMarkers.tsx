@@ -15,6 +15,15 @@ const redMarkerIcon = divIcon({
 	popupAnchor: [-2, -28],
 })
 
+/*
+ * LocationMarkers reactively displays search results on the map.
+ * It also 'highlights' a marker if:
+ *	- User is hovering over Marker
+ *	- User is navigating (arrow keys) search results
+ *	- User is hovering over search results
+ * Furthermore, hovering over a marker also highlights the corresponding search result.
+*/
+
 export default function LocationMarkers() {
 	const [searchResults] = useAtom(searchResultsAtom)
 	const [autocompleteIndex, setAutocompleteIndex] = useAtom(autocompleteIndexAtom)

@@ -6,6 +6,12 @@ import Events from "./Events"
 
 const boston: LatLngTuple = [42.354022, -71.046245]
 
+/*
+ * WARNING: never use this component directly.
+ *
+ * This component depends on the window object being defined.
+ * Access this component instead through ./index.tsx.
+*/
 export default function Map() {
 	return (
 		<div className="h-screen w-screen relative z-10">
