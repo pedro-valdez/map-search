@@ -4,8 +4,16 @@ import { Marker, Popup } from "react-leaflet"
 import { divIcon } from "leaflet"
 import { locationForModalAtom } from "../LocationModal"
 
-const defaultMarkerIcon = divIcon({ className: "default-marker" })
-const redMarkerIcon = divIcon({ className: "red-marker" })
+const defaultMarkerIcon = divIcon({
+	className: "default-marker",
+	iconAnchor: [12, 28],
+	popupAnchor: [-2, -28],
+})
+const redMarkerIcon = divIcon({
+	className: "red-marker",
+	iconAnchor: [12, 28],
+	popupAnchor: [-2, -28],
+})
 
 export default function LocationMarkers() {
 	const [searchResults] = useAtom(searchResultsAtom)
