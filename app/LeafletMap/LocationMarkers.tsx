@@ -7,9 +7,9 @@ import { locationForModalAtom } from "../LocationModal"
 const defaultMarkerIcon = new Icon.Default()
 const redMarkerIcon = new Icon.Default()
 redMarkerIcon.options = {
-	...redMarkerIcon.options,
 	iconUrl: "marker-icon-red.png",
 	iconRetinaUrl: "marker-icon-red-2x.png",
+	shadowUrl: "marker-shadow.png",
 }
 
 export default function LocationMarkers() {
@@ -33,12 +33,12 @@ export default function LocationMarkers() {
 							mouseout: (e) => {
 								setAutocompleteIndex(null)
 								e.sourceTarget.closePopup()
-						},
+							},
 							click: () => {
 								setLocationforModal(searchResults[i])
 								const modal = document.getElementById("location_modal") as HTMLDialogElement
 								modal.showModal()
-							}
+							},
 						}}
 					>
 						<Popup>
