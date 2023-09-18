@@ -4,7 +4,8 @@ export default function FindButton() {
 	return (
 		<button
 			className="btn btn-square btn-ghost group-focus-within:hidden sm:group-focus-within:inline-flex"
-			onClick={e => {
+			type="submit"
+			onClick={(e) => {
 				e.currentTarget.blur()
 			}}
 		>

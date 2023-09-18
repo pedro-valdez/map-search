@@ -8,6 +8,7 @@ export default function BackButton() {
 				e.preventDefault()
 				e.currentTarget.blur()
 			}}
+			type="button"
 		>
 			<HiArrowLeft />
 		</button>

@@ -26,6 +26,7 @@ export default function SearchbarInput() {
 				const isUpArrow = e.key === "ArrowUp"
 				const isDownArrow = e.key === "ArrowDown"
 				const isVerticalArrow = isUpArrow || isDownArrow
+				const isEnter = e.key === "Enter"
 				const isAutocompletePossible = searchResults.length !== 0
 				const isIndexNull = autocompleteIndex === null
 				const isIndexZero = autocompleteIndex === 0
@@ -53,6 +54,11 @@ export default function SearchbarInput() {
 						} else {
 							setSearchText(searchResults[newIndex].name)
 						}
+					}
+
+					if (isEnter) {
+						const form = document.getElementById("search") as HTMLFormElement
+						form.requestSubmit()
 					}
 				}
 			}}
