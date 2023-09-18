@@ -4,6 +4,12 @@ import { autocompleteIndexAtom, searchResultsAtom } from "../Results"
 export const searchQueryAtom = atom("")
 export const searchTextAtom = atom("")
 
+/*
+ * From this component the user can:
+ * - Type and search results are shown
+ * - Navigate through search results with up/down arrow keys
+ * - Open modal my pressing enter
+*/
 export default function SearchbarInput() {
 	const [searchText, setSearchText] = useAtom(searchTextAtom)
 	const [searchQuery, setSearchQuery] = useAtom(searchQueryAtom)
@@ -17,12 +23,25 @@ export default function SearchbarInput() {
 			className="input bg-transparent w-full focus:outline-0"
 			value={searchText}
 			onChange={e => {
+				/*
+				 * When user types:
+				 * - Reset autocompleteIndex
+				 * - Update input value
+				 * - Change search results
+				*/
 				const text = e.currentTarget.value
 				setAutocompleteIndex(null)
 				setSearchText(text)
 				setSearchQuery(text.trim())
 			}}
 			onKeyDown={e => {
+				/*
+				 * Basically:
+				 * - When user presses up and down arrows keys:
+				 *   - Update autocompleteIndex
+				 *   - Update searchText
+				 * - When pressing enter, update form
+				*/
 				const isUpArrow = e.key === "ArrowUp"
 				const isDownArrow = e.key === "ArrowDown"
 				const isVerticalArrow = isUpArrow || isDownArrow

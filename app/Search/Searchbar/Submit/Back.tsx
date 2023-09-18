@@ -1,5 +1,9 @@
 import { HiArrowLeft } from "react-icons/hi2"
 
+/*
+ * This button is for mobile users.
+ * When pressed, the search results aren't shown anymore.
+*/
 export default function BackButton() {
 	return (
 		<button

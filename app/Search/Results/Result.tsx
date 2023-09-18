@@ -10,6 +10,14 @@ type ResultProps = {
 	index: number,
 }
 
+/*
+ * Component to display an item in searchResults array.
+ * When component is clicked it opens a modal displaying
+ * further information on result.
+ *
+ * When locate button gets pressed, map gets centered
+ * around corresponding location.
+*/
 export default function Result({ mapLocation, isSelected, index } : ResultProps) {
 	const [autocompleteIndex, setAutocompleteIndex] = useAtom(autocompleteIndexAtom)
 	const [mapCenter, setMapCenter] = useAtom(mapCenterAtom)

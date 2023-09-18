@@ -1,5 +1,6 @@
 import Image from "next/image"
 
+// When pressed modal gets opened on first result.
 export default function FindButton() {
 	return (
 		<button
