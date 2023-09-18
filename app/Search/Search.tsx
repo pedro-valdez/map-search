@@ -16,7 +16,7 @@ export default function Search() {
 	return (
 		<form
 			id="search"
-			className="group fixed z-20 left-4 top-4 w-[calc(100%-2rem)] sm:max-w-sm"
+			className="group fixed z-20 left-4 top-4 w-[calc(100%-2rem)] sm:max-w-sm max-h-[calc(100vh-2rem)] overflow-y-scroll"
 			onSubmit={e => {
 				e.preventDefault()
 				const shouldOpenModal = searchResults.length > 0
